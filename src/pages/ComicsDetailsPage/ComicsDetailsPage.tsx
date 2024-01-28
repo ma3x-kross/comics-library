@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 // mui
 import { Box } from '@mui/material'
@@ -13,7 +13,7 @@ import { useParams } from 'react-router-dom'
 import { useGetComicsByIdQuery } from 'store/api/api'
 import ComicsDetailsPageContent from '../../components/ComicsDetailsContent/ComicsDetailsContent'
 
-const ComicsDetailsPage = () => {
+const ComicsDetailsPage:React.FC = () => {
 	const { id } = useParams()
 
 	const { data, isLoading, error } = useGetComicsByIdQuery(

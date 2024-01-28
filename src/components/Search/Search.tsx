@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 // mui
 import { TextField } from '@mui/material'
 
-// other libraries
-import debounce from 'lodash.debounce'
-import { useLazyGetComicsListQuery } from 'store/api/api'
+
 
 interface SearchProps {
 	searchValue: string

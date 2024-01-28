@@ -4,7 +4,7 @@ import React from 'react'
 import { Box, Button, Stack, Tooltip, Typography } from '@mui/material'
 
 // types
-import { ComicsProps, IComics } from 'types/comics'
+import {  IComics } from 'types/comics'
 
 // rtk
 import { useAuth } from 'hooks/useAuth'

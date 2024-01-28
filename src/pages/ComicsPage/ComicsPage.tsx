@@ -35,7 +35,7 @@ const ComicsPage = () => {
 	// pagination
 	const [page, setPage] = useState(1)
 	const handleChangePage = (
-		event: React.ChangeEvent<unknown>,
+		_event: React.ChangeEvent<unknown>,
 		value: number
 	) => {
 		setPage(value)
