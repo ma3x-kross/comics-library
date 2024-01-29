@@ -95,7 +95,7 @@ const FavoritesAndPurchasesContent: React.FC<
 						color: 'primary.contrastText',
 					}}
 				>
-					No Favorites
+					No contents
 				</Box>
 			)}
 		</Box>

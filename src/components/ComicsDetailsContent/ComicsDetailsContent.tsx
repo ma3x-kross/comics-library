@@ -4,7 +4,7 @@ import React from 'react'
 import { Box, Button, Stack, Tooltip, Typography } from '@mui/material'
 
 // types
-import {  IComics } from 'types/comics'
+import { IComics } from 'types/comics'
 
 // rtk
 import { useAuth } from 'hooks/useAuth'
@@ -107,9 +107,23 @@ const ComicsDetailsContent: React.FC<ComicsDetailsPageContentProps> = ({
 				{/* Buttons */}
 				<Stack direction='row' spacing={3} alignItems='center'>
 					{isAuth ? (
-						<Button onClick={handleClickToggleFavorites} color='warning'>
-							{isExist ? 'Remove from Favorites' : 'Add to Favorites'}
-						</Button>
+						<>
+							{/* Add to Favorites */}
+							<Button onClick={handleClickToggleFavorites} color='warning'>
+								{isExist ? 'Remove from Favorites' : 'Add to Favorites'}
+							</Button>
+
+							{/* Buy */}
+							<Button
+								onClick={handleClickBuyComics}
+								color='success'
+								disabled={!price || isExistPurchases}
+							>
+								{isExistPurchases
+									? 'Сomics already been purchased'
+									: 'Buy Comics'}
+							</Button>
+						</>
 					) : (
 						<Tooltip title='Log in to add  to your favorites'>
 							<span>
@@ -119,13 +133,6 @@ const ComicsDetailsContent: React.FC<ComicsDetailsPageContentProps> = ({
 							</span>
 						</Tooltip>
 					)}
-					<Button
-						onClick={handleClickBuyComics}
-						color='success'
-						disabled={!price || isExistPurchases}
-					>
-						{isExistPurchases ? 'Сomics already been purchased' : 'Buy Comics'}
-					</Button>
 				</Stack>
 			</Stack>
 		</Stack>

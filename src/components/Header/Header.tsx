@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAuth } from 'hooks/useAuth'
 
 // mui
@@ -21,7 +21,7 @@ import LoginIcon from '@mui/icons-material/Login'
 import { Link, NavLink } from 'react-router-dom'
 import Logout from 'components/Logout'
 
-const pages = ['comics', 'favorites', 'purchases']
+const PAGES_CONST = ['comics', 'favorites', 'purchases']
 
 const navLinkActiveStyle = {
 	textDecoration: 'none',
@@ -32,7 +32,14 @@ const navLinkActiveStyle = {
 const Header: React.FC = () => {
 	const [openMobileMenu, setOpenMobileMenu] = useState(false)
 
+	// если вошел в систему то отображать страницы favorites и purchases
 	const { isAuth } = useAuth()
+	const [pages, setPages] = useState(
+		isAuth ? PAGES_CONST : PAGES_CONST.slice(0, 1)
+	)
+	useEffect(() => {
+		setPages(isAuth ? PAGES_CONST : PAGES_CONST.slice(0, 1))
+	}, [isAuth])
 
 	return (
 		<AppBar component='nav' position='static' sx={{ bgcolor: 'primary.dark' }}>
